@@ -1,0 +1,115 @@
+\documentclass{article}
+\author{Alex Hiller}
+\title{Embedded Deformation of 3D Heart Image}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.125cm}
+
+% Packages
+\usepackage{amsmath}              % Mathematics
+\usepackage{amssymb}
+\usepackage[margin=3cm]{geometry} % Formatting
+\usepackage{listings}             % Listings
+\usepackage{color}                % Listings
+\usepackage{courier}              % Listings
+
+% Listing Pre-Requisites
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+\lstset{style=mystyle} 
+
+% Laplace transform macro
+\newcommand{\Lapl}[1]{\mathcal{L} \ \bigg\{ #1  \bigg\}  } 
+
+\begin{document}
+
+\textbf{Question:} \\
+When $t=0$ a switch closes connecting a voltage source to a series RL circuit. The source is characterised by: $v(t) = V_m \sin(\omega t + \phi)$. Find the time domain expression of the current, $i(t)$.
+
+\begin{equation}
+  I(s) = \frac{V(s)}{Z(s)}
+\end{equation}
+
+Finding $V(s)$ 
+
+\begin{equation}
+  \Lapl{v(t)} =
+  \Lapl{ V_m \sin(\omega t + \phi) } \ =
+  V_m \Lapl{ \sin(\omega t + \phi) } 
+\end{equation}
+
+\begin{equation}
+  V_m \ \Lapl{\sin(\omega t)\cos(\phi) +
+  \cos(wt)\sin(\phi)}
+\end{equation}
+
+\begin{equation}
+  V_m  \bigg( \ \Lapl{\sin(\omega t)\cos(\phi)} +
+  \Lapl{\cos(wt)\sin(\phi)} \bigg)
+\end{equation}
+
+Note that $\cos(\phi)$ and $\sin(\phi)$ are constants with respect to time can subsequently be removed from the argument of the Laplace transform.
+
+\begin{equation}
+   V_m  \bigg( \cos(\phi) \ \Lapl{\sin(\omega t)} +
+   \sin(\phi) \ \Lapl{\cos(wt)} \bigg)
+\end{equation}
+
+\begin{equation}
+  \therefore \ V(s) = 
+  V_m  \bigg( \cos(\phi) \ \frac{\omega}{s^2 +
+  \omega^2}  +
+  \sin(\phi) \ \frac{s}{s^2+\omega^2} \bigg)
+\end{equation}
+
+Finding Z(s) by simple s-domain series impedance:
+
+\begin{equation}
+  Z(s) =
+  sL + R \quad \Rightarrow \quad \frac{1}{Z(s)} =
+  \frac{1}{sL + R} =
+  \frac{\frac{1}{L}}{s+\frac{R}{L}}
+\end{equation}
+
+Then to current, $I(s)$ 
+
+\begin{equation}
+  I(s) = 
+  \frac{V(s)}{Z(s)} =  
+  V_m  \bigg( \cos(\phi) \ \frac{\omega}{s^2 + 
+  \omega^2}  + \sin(\phi) \ \frac{s}{s^2+\omega^2} \bigg) \frac{\frac{1}{L}}{s+\frac{R}{L}}
+\end{equation}
+
+\begin{equation}
+   =  V_m  \bigg(  \frac{\cos(\phi) \omega + 
+   \sin(\phi) \ s}{s^2 + \omega^2} \bigg) \frac{\frac{1}{L}}{s+\frac{R}{L}}
+\end{equation}
+
+\begin{equation}
+  \frac{V_m}{L}<++>
+\end{equation}
+
+
+
+<++>
+
+\end{document}
