@@ -38,7 +38,8 @@
 \lstset{style=mystyle} 
 
 % Laplace transform macro
-\newcommand{\Lapl}[1]{\mathcal{L} \ \bigg\{ #1  \bigg\}  } 
+\newcommand{\Lapl}[1]{\mathcal{L}  \bigg\{ #1  \bigg\}  } 
+\newcommand{\iLapl}[1]{\mathcal{L}^{-1}  \bigg\{ #1  \bigg\}  } 
 
 \begin{document}
 
@@ -98,18 +99,66 @@ Then to current, $I(s)$
   V_m  \bigg( \cos(\phi) \ \frac{\omega}{s^2 + 
   \omega^2}  + \sin(\phi) \ \frac{s}{s^2+\omega^2} \bigg) \frac{\frac{1}{L}}{s+\frac{R}{L}}
 \end{equation}
-
 \begin{equation}
    =  V_m  \bigg(  \frac{\cos(\phi) \omega + 
-   \sin(\phi) \ s}{s^2 + \omega^2} \bigg) \frac{\frac{1}{L}}{s+\frac{R}{L}}
+   \sin(\phi)  s}{s^2 + \omega^2} \bigg) \frac{\frac{1}{L}}{s+\frac{R}{L}}
 \end{equation}
 
 \begin{equation}
-  \frac{V_m}{L}<++>
+   =    \frac{V_m}{L} \bigg(  \frac{\cos(\phi) \omega + 
+   \sin(\phi)  s}{(s^2 + \omega^2)(s+\frac{R}{L})} \bigg) 
 \end{equation}
 
+We want to decompose the bottom into separate individual poles so we can use the residue theorem. It's helpful to decompose $s^2 + \omega^2$ into $(s+j\omega)(s-j\omega)$.
+
+\begin{equation}
+  =    \left( \frac{V_m}{L} \right)  \frac{\left( \ \cos(\phi) \omega + 
+   \sin(\phi)  s \ \right)}{(s + j \omega)(s - jw)(s+\frac{R}{L})}  
+\end{equation}
+
+\clearpage
+Recall the residue theorem:
+
+\begin{equation}
+  f(t) = 2 \pi i \sum^{m}_{k=1} \frac{1}{(n-1)!} \lim_{s \to s_k} \frac{d^{n-1}}{ds^{n-1}}(s-s_k)^n F(s)
+\end{equation}
+
+$s.t. \\ m = \text{number of poles} \\ n = \text{order of the pole} \\ s_k = \text{the $k$-th pole in $F(s)$} $ \\
+
+Using the residue theorem to solve inverse Laplace transforms: 
+
+\begin{equation} \label{eq:ilap_res}
+  \iLapl{F(s)} = f(t) = \sum^m_{k=1} \text{Res}(e^{st}F(s),s_k) = \sum^{m}_{k=1} \frac{1}{(n-1)!} \lim_{s \to s_k} \frac{d^{n-1}}{ds^{n-1}}(s-s_k)^n \ e^{st}F(s)
+\end{equation}
+
+Looking at the denominator of the frequency domain function of current, we can see the set of poles, $$\{s\} = \left\{ -j\omega ,\ j\omega ,\ -\frac{R}{L} \right\}$$
+
+Now we have to insert the poles and evaluate Eq.\ref{eq:ilap_res} but we can first do some simplification. For our poles, they are all of order 1. 
+
+\begin{equation}
+  \sum^{m}_{k=1} \frac{1}{(n-1)!} \lim_{s \to s_k} \frac{d^{n-1}}{ds^{n-1}}(s-s_k)^n \ e^{st}F(s) \bigg|_{n=1} = \ \sum^{m}_{k=1}  \lim_{s \to s_k} (s-s_k)^n \ e^{st}F(s)
+\end{equation}
+
+
+\begin{equation}
+  \sum^{m}_{k=1}  \lim_{s \to s_k} (s-s_k) \ e^{st}F(s)  \
+  = \lim_{s \to j \omega} (s-s_k) \ e^{st}F(s) \
+  \ \ \ + \lim_{s \to -j \omega} \ (s-s_k) \ e^{st}F(s) \ 
+  + \lim_{s \to \alpha} \ (s-s_k) \ e^{st}F(s) \
+\end{equation}
+
+\begin{equation}
+  \sum^{m}_{k=1}  \lim_{s \to s_k} (s-s_k) \ e^{st}F(s)  \
+  =   \  \ ( s - j\omega) e^{j\omega t} \ F(j \omega) \
+   \ \ \ \ \  \  \  \ +  \ (s + j \omega) \ e^{-j\omega t} \ F(-j\omega)  \ 
+  +  (s- \alpha) \ e^{\alpha t } \ F(\alpha) \
+\end{equation}
+
+
+
+
+\clearpage
 
 
 <++>
-
 \end{document}
