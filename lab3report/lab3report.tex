@@ -1,0 +1,248 @@
+\documentclass{article}
+\author{Alex Hiller - 11850637}
+\title{Power Circuit Theory - Lab Report 3}
+
+% Type-setting
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.125cm}
+\pagenumbering{gobble}
+\usepackage[margin=2cm]{geometry} % Formatting
+\usepackage{titlesec}
+% titleformat{\command}[shape]{format}{label}{separation of label to body}{Before code}[After code]
+\titleformat{\section}{\huge \bfseries}{}{0em}{\clearpage}[]
+\titleformat{\subsection}{\Large \bfseries}{}{0em}{}[]
+\titleformat{\subsubsection}{\bfseries}{}{0em}{}[]
+
+% Packages
+\usepackage{amsmath}              % Mathematics
+\usepackage{amssymb}
+\usepackage{listings}             % Listings
+\usepackage{color}                % Listings
+\usepackage{courier}              % Listings
+
+% Custom Commands
+\newcommand{\vc}[2]{\mathbf{#1}_{#2}}
+
+% Listing Pre-Requisites
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+\lstset{style=mystyle} 
+
+
+\begin{document}
+\maketitle
+
+%\listoffigures
+
+\clearpage
+
+\section{Y-Neutral/Y-Neutral Transformer}
+
+\subsection{DC Resistance of the Windings}
+<++>
+
+Explain the reasons for your position of the ammeter and the voltmeter.
+
+<++>
+
+\begin{equation}
+  V_1 = <++>
+\end{equation}
+
+\begin{equation}
+  I_1 = V_2 = <++>
+\end{equation}
+
+\begin{equation}
+  I_2 = <++>
+\end{equation}
+
+\begin{equation}
+  R_1 = <++>
+\end{equation}
+
+\begin{equation}
+  R_2 = <++>
+\end{equation}
+
+\subsection{Measured Voltage and Current on the Primary Side of the Transformer}
+
+Primary Voltage:
+\begin{equation}
+  | V^{'} | = 4.53 \text{V}
+\end{equation} 
+
+\begin{equation}
+  | I^{'} | = 5.7 \text{A}
+\end{equation} 
+
+\subsection{Calculate the Transformer's Parameters} 
+
+\begin{equation}
+  Z_b = \frac{ \left( V_{base} \right)^2  }{S_{base}} = \frac{\left( \sqrt{3} \times 240 \right)^2}{4500} = <++> \Omega
+\end{equation}
+
+\begin{equation}
+  R_0 = <++> (p.u.)
+\end{equation}
+
+\begin{equation}
+  |Z_0 | = \frac{| V_0 |}{| I_0 |} = \frac{| V^{'} |}{| \frac{I^{'}}{3} |} = <++> (p.u.)
+\end{equation}
+
+\begin{equation}
+  X_{0} = \sqrt{| Z_0 |^{2} - R^2_0} = <++> 
+\end{equation}
+
+\subsection{Measure the secondary neutral current with the Fluke clamp meter} 
+
+\begin{equation}
+  | I^{''} | = 10.02 \ A \ \text{(rms)}
+\end{equation}
+
+<++>
+
+\subsection{Measure the voltage between the neutral points with DMM} 
+\begin{equation}
+  | V_{Nn} | = 3.9 \text{V}
+\end{equation}
+
+This measurement was oscillating a lot.
+
+\subsection{Draw the zero sequence equivalent circuit of the transformer}
+<++>
+\subsubsection{Explain:} 
+<++>
+
+\section{Y-Neutral to Y Transformer} 
+
+\subsection{Predict $|I_s|$}
+<++>
+\subsubsection{Explain:} 
+<++>
+
+\subsection{If $|I^{'} | = $ 5.4A, expectations are that:}
+
+$V^{'}$ to be: <++>
+
+$Z_0$ to be: <++>
+
+The current in each primary winding to be: <++>
+
+Give explanations using Faraday's Law, Ampere's Law and the magnetic equivalent circuit.
+<++>
+
+\subsection{Measure voltage, current and power one the primary side of the transformer} 
+
+Primary Voltage:
+\begin{equation}
+  | V^{'} | = 16.95 \text{ V (rms)}
+\end{equation}
+
+Primary Current:
+\begin{equation}
+  | I^{'} | = \frac{5.53}{3} = 1.843 \text{ A (rms)}
+\end{equation}
+
+Primary Power:
+\begin{equation}
+  P^{'} = 21 \text{ W}
+\end{equation}
+
+Secondary Winding Current:
+\begin{equation}
+  | I_{s} | = 0.4 \text{ A (rms)}
+\end{equation}
+
+\subsection{Calculate the transformer's parameters (referred to the primary)} 
+
+\begin{equation}
+  \frac{1}{3} R_0 = \frac{P^{'}}{|I^{'} |^{2}} = <++> \text{ (p.u.)}
+\end{equation}
+
+Comparing $R_0$ with that measured in part 1: <++>
+
+\begin{equation}
+  | Z_0 | = \frac{| V_0 |}{| I_0 |} = \frac{| V |}{| \frac{I^{'}}{3}|} = <++>\text{ (p.u.)}
+\end{equation}
+
+\begin{equation}
+  X_0 = \sqrt{| Z_0 |^{2} - R^{2}_0} = <++> \text{ (p.u.)}
+\end{equation}
+
+\subsection{Draw the zero sequence equivalent circuit of the transformer} 
+<++>
+
+\subsubsection{Explain} 
+<++>
+
+\subsection{Clamp meter measurements of each primary winding} 
+
+\begin{equation}
+  | I^{'}_{A} | = 1.70 \text{ A}
+\end{equation}
+
+\begin{equation}
+  | I^{'}_{B} | = 1.74 \text{ A}
+\end{equation}
+
+\begin{equation}
+  | I^{'}_{C} | = 1.59 \text{ A}
+\end{equation}
+
+\subsubsection{The measurements are slightly unequal this is because:} 
+<++>
+
+\subsection{With secondary terminals open-circuited and $|I^{'}| = 5.4$ A} 
+
+\subsubsection{Primary voltage measured was:}
+\begin{equation}
+  | V^{'} | = 16.94 \text{ V (rms)}
+\end{equation}
+
+\subsubsection{Calculated zero sequence impedance is:} 
+
+\begin{equation}
+  | Z_0 | = <++> \text{ (p.u.)}
+\end{equation}
+
+\subsection{Draw the zero sequence equivalent circuit of the transformer} 
+
+<++>
+
+\subsubsection{Explain} 
+
+<++>
+
+\subsection{Comparing the calculated transformer's parameters with the zero sequence impedance} 
+<++>
+
+\section{Y-Neutral to Delta Transformer} 
+
+\subsection{Measured Voltage, Current and Resistance on Primary Side} 
+
+\begin{equation}
+  <++>
+\end{equation}
+
+\end{document}
