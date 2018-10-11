@@ -61,38 +61,51 @@
 
 \subsection{DC Resistance of the Windings}
 
+The wiring used for measuring the DC resistance of the transformer is as below. Resistance was measured for all three phases simultaneously.
+
 \begin{centering}
 
-\begin{circuitikz} \draw
-  (0,0) to[V] (0,2);
+\begin{circuitikz} 
+  \draw (1,0) to[voltmeter] (1,3);
+  \draw (3.2,0) to[V=$V'$] (3.2,3);
+  \draw (1,3) to (3.2,3);
+  \draw (1,0) to (3.2,0);
+  \draw (3.2,3) to[ammeter] (4.7, 3);
+  \draw (4.7,3) to[L=Phase A ] (6.7,3);
+  \draw (6.7,3) to[L=Phase B] (8.7,3);
+  \draw (8.7,3) to[L=Phase C] (10.7,3);
+  \draw (10.7,3) to (10.7,0);
+  \draw (10.7,0) to (1,0);
 \end{circuitikz}
 
 \end{centering}
 
-\subsection{Explain the reasons for your position of the ammeter and the voltmeter.}
+
+
+\subsection{Explain the reasons for your position of the ammeter and the voltmeter}
 The voltmeter comes after the resistor bank so that we both limit the current to safe levels as well as measure the primary voltage.
 
 The ammeter is placed before the branching of the conductor into each phase of the transformer. This gives us $3 I_0$ or 3 times the current in each phase of the transformer. Measuring when the current is larger allows the error of the instrument to be reduced in comparison to one phase was being measured.
 
 
 \begin{equation}
-  V_1 = <++>
+  V_1 = 0.6
 \end{equation}
 
 \begin{equation}
-  I_1 = V_2 = <++>
+  I_1 = V_2 = 0.28
 \end{equation}
 
 \begin{equation}
-  I_2 = <++>
+  I_2 = 1.016
 \end{equation}
 
 \begin{equation}
-  R_1 = <++>
+  R_1 = 0.48
 \end{equation}
 
 \begin{equation}
-  R_2 = <++>
+  R_2 = 0.27
 \end{equation}
 
 \subsection{Measured Voltage and Current on the Primary Side of the Transformer}
@@ -171,13 +184,14 @@ Current through an ideal transformer is related through the turns ratio as seen 
 
 $V^{'}$ to be: Larger
 
-$Z_0$ to be: Magnetising/Leakage <++>
+$Z_0$ to be: Magnetising 
 
 The current in each primary winding to be: The same.
 
-Give explanations using Faraday's Law, Ampere's Law and the magnetic equivalent circuit.
+\subsubsection{Give explanations using Faraday's Law, Ampere's Law and the magnetic equivalent circuit} 
 
-<++>
+(?)
+
 
 \subsection{Measure voltage, current and power one the primary side of the transformer} 
 
@@ -236,7 +250,7 @@ Comparing $R_0$ with that measured in part 1: Much higher.
 \end{centering}
 
 \subsubsection{Explain} 
-<++>
+This is as per the lecture slides. 
 
 \subsection{Clamp meter measurements of each primary winding} 
 
@@ -284,17 +298,17 @@ Comparing $R_0$ with that measured in part 1: Much higher.
   (2,0) to[L=$$] (4,0)
   (0,-1) to (7, -1)
   (5,0) to (7,0)
-  (5,0) to (5,-1)
+  (5,0) to (5,-1);
 \end{circuitikz}
 
 \end{centering}
 
 \subsubsection{Explain} 
 
-<++>
+From the primary side the impedance is infinite. On the secondary side the current is high and resistance is theoretically zero.
 
 \subsection{Comparing the calculated transformer's parameters with the zero sequence impedance} 
-<++>
+These impedances must be the leakage impedance? Seems too small for a magnetising impedance.
 
 \section{Y-Neutral to Delta Transformer} 
 
@@ -366,15 +380,11 @@ Magnetising.
 
 \subsection{Is the delta secondary a short-circuit to zero sequence currents?} 
 
-<++>
+No.
 
 \subsection{Comparison of the $Z _0$ for the three confgurations} 
 
-\subsubsection{Configuration One <++>} 
-
-\subsubsection{Configuration Two <++>} 
-
-\subsubsection{Configuration Three <++>} 
+The $Z_0$ of the configurations without a grounding on the secondary side are much higher. 
 
 \section{Positive \& Negative Sequence Impedance} 
 
@@ -385,7 +395,7 @@ Primary Voltage:
 
 Primary Current:
 \begin{equation}
-  | I _{sc} | 5.4 \text{ A (rms)}
+  | I _{sc} | = 5.4 \text{ A (rms)}
 \end{equation}
 
 Primary Power:
@@ -396,37 +406,37 @@ Primary Power:
 \subsection{Transformer's Calculated Parameters} 
 
 \begin{equation}
-  R_1 = \frac{P _{sc}}{| I _{sc}|^2} = 
+  R_1 = \frac{P_{sc}}{| I _{sc}|^2} = 1.0631 \ \Omega \ \Rightarrow \ 0.027685 \ (p.u.)
 \end{equation}
 
 Comparing this with that found in Part 1:
-<++>
+
 
 \begin{equation}
-  | Z _1 | = | Z _2 | = \frac{|V_{sc}|}{|I_{sc}|} = <++>
+  | Z _1 | = | Z _2 | = \frac{|V_{sc}|}{|I_{sc}|} = 1.4611 \ \Omega \ \Rightarrow \ 0.03805 \ (p.u.)
 \end{equation}
 
 \begin{equation}
-  X_1 = \sqrt{| Z _1 |^2 - R^2 _1} = 
+  X_1 = \sqrt{| Z _1 |^2 - R^2 _1} = 0.026103 \ (p.u.)
 \end{equation}
 
 \subsection{Comparing $R1$ and $R0$} 
 
-<++>
+
 
 \subsubsection{Explain} 
 
-<++>
+Both of these resistances are measured from the primary side and are hence going to be related to one another.
 
 \subsection{Positive \& negative sequence test circuit for magnetising $Z$ } 
 
 \subsubsection{Why such a circuit is used:} 
 
-<++>
+Because it doesn't matter which side the positive sequence enters the transformer if we're attempting to determine these impedances.
 
 \subsubsection{Determining $R _{1m}$ $X _{1m}$ and  $Z _{1m}$}
 
-<++>
+Using the voltage and current measurements, you can determine $R_{lm}$ and $X_{lm} \ \Rightarrow \ Z_{lm} = R_{lm} + j X_{lm}$
 
 \subsection{Determining $Z_{0m}$} 
 
@@ -443,23 +453,5 @@ Comparing this with that found in Part 1:
 \subsubsection{Experimental setup and equipment} 
 
 <++>
-
-%\begin{circuitikz} \draw
- % (0,0) to[V=\SI{100}{V}] (0,4) --
- % (0,4) to[R] (4,4) --
- % (4,4) to[L] (4,0) --
- % (0,0);
-%\end{circuitikz}
-
-\begin{centering}
-
-\begin{circuitikz} \draw
-  (0,0) to[V] (0,3) --
-  (0,3) to[R] (3,3) --
-  (3,3) to[L] (3,0) --
-  (0,0);
-\end{circuitikz}
-
-\end{centering}
 
 \end{document}
