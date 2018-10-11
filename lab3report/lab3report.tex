@@ -60,7 +60,14 @@
 \section{Y-Neutral/Y-Neutral Transformer}
 
 \subsection{DC Resistance of the Windings}
-<++>
+
+\begin{centering}
+
+\begin{circuitikz} \draw
+  (0,0) to[V] (0,2);
+\end{circuitikz}
+
+\end{centering}
 
 \subsection{Explain the reasons for your position of the ammeter and the voltmeter.}
 The voltmeter comes after the resistor bank so that we both limit the current to safe levels as well as measure the primary voltage.
@@ -131,9 +138,21 @@ Primary Voltage:
 This measurement was oscillating a lot.
 
 \subsection{Draw the zero sequence equivalent circuit of the transformer}
-<++>
+\begin{centering}
+
+\begin{circuitikz} \draw
+  (0,3) to[R=$R_0$] (3,3)
+  (3,3) to[L=$X_0$] (6,3);
+\end{circuitikz}
+
+\begin{circuitikz} \draw
+  (0,0) -- (6,0); 
+\end{circuitikz}
+
+\end{centering}
+
 \subsubsection{Explain:} 
-<++>
+The impedance of the transformer directly impedes the current on the secondary side.
 
 \section{Y-Neutral to Y Transformer} 
 
@@ -203,7 +222,18 @@ Comparing $R_0$ with that measured in part 1: Much higher.
 \end{equation}
 
 \subsection{Draw the zero sequence equivalent circuit of the transformer} 
-<++>
+
+\begin{centering}
+
+\begin{circuitikz} \draw
+  (0,0) to[R=$$] (2,0) --
+  (2,0) to[L=$$] (4,0)
+  (0,-1) to (7, -1)
+  (5,0) to (7,0)
+  (,);
+\end{circuitikz}
+
+\end{centering}
 
 \subsubsection{Explain} 
 <++>
@@ -226,10 +256,11 @@ Comparing $R_0$ with that measured in part 1: Much higher.
 
 \begin{itemize}
   \item Imbalance of heat amongst the inductors in each phase.
-  \item 
+  \item Differences in absolute impedance, independent of temperature.
+  \item Faulty measurement equipment.
+  \item Tolerances in the measurement equipment.
+  \item Experimental error.
 \end{itemize}
-
-<++>
 
 \subsection{With secondary terminals open-circuited and $|I^{'}| = 5.4$ A} 
 
@@ -241,12 +272,22 @@ Comparing $R_0$ with that measured in part 1: Much higher.
 \subsubsection{Calculated zero sequence impedance is:} 
 
 \begin{equation}
-  | Z_0 | = <++> \text{ (p.u.)}
+  | Z_0 | = \frac{16.94}{5.4} \frac{1}{Z_b} = 0.081694  \text{ (p.u.)}
 \end{equation}
 
 \subsection{Draw the zero sequence equivalent circuit of the transformer} 
 
-<++>
+\begin{centering}
+
+\begin{circuitikz} \draw
+  (0,0) to[R=$$] (2,0) --
+  (2,0) to[L=$$] (4,0)
+  (0,-1) to (7, -1)
+  (5,0) to (7,0)
+  (5,0) to (5,-1)
+\end{circuitikz}
+
+\end{centering}
 
 \subsubsection{Explain} 
 
@@ -269,7 +310,7 @@ Comparing $R_0$ with that measured in part 1: Much higher.
 
 Per-phase DC resistance:
 \begin{equation}
-  R_0 = <++>
+  R_0 = \frac{1.687}{38.4} = 0.04392 (p.u.)
 \end{equation}
 
 \subsection{DMM measurement of the phase voltages to primary neutral on the secondary side} 
@@ -295,24 +336,33 @@ Per-phase DC resistance:
 \subsection{Transformer's calculated parameters (referred to the primary)} 
 
 \begin{equation}
-  Z _0 = R _0 + j X _0 = <++> + j <++>
+  Z _0 = R _0 + j X _0 = 0.04392 + j0.124 \ (p.u.) 
 \end{equation}
 
-\subsection{Zero sequence equivalent of the transformer} 
+\subsection{Zero-sequence equivalent of the transformer} 
 
-<++>
+\begin{centering}
+
+\begin{circuitikz} \draw
+  (0,0) to[R=$R_0$] (2,0) 
+  to[L=$X_0$, -] (4,0) to (4,-1)
+  (0,-1) -- (6,-1)
+  (5,0) -- (6,0);
+\end{circuitikz}
+
+\end{centering}
 
 \subsubsection{Explain:} 
 
-<++>
+The impedance can only be seen from the primary side.
 
 \subsection{If a secondary line terminal was shorted to the "earth" (primary neutral), what would be the resulting current?} 
 
-<++>
+Negative of the primary current.
 
 \subsection{Is $Z _0$ a leakage or magnetising impedance?} 
 
-<++>
+Magnetising.
 
 \subsection{Is the delta secondary a short-circuit to zero sequence currents?} 
 
