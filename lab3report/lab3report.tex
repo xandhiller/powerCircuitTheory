@@ -15,10 +15,11 @@
 
 % Packages
 \usepackage{amsmath}              % Mathematics
-\usepackage{amssymb}
+\usepackage{amssymb}              % Mathematics
 \usepackage{listings}             % Listings
 \usepackage{color}                % Listings
 \usepackage{courier}              % Listings
+\usepackage[american]{circuitikz} % Circuits
 
 % Custom Commands
 \newcommand{\vc}[2]{\mathbf{#1}_{#2}}
@@ -61,9 +62,11 @@
 \subsection{DC Resistance of the Windings}
 <++>
 
-Explain the reasons for your position of the ammeter and the voltmeter.
+\subsection{Explain the reasons for your position of the ammeter and the voltmeter.}
+The voltmeter comes after the resistor bank so that we both limit the current to safe levels as well as measure the primary voltage.
 
-<++>
+The ammeter is placed before the branching of the conductor into each phase of the transformer. This gives us $3 I_0$ or 3 times the current in each phase of the transformer. Measuring when the current is larger allows the error of the instrument to be reduced in comparison to one phase was being measured.
+
 
 \begin{equation}
   V_1 = <++>
@@ -99,19 +102,19 @@ Primary Voltage:
 \subsection{Calculate the Transformer's Parameters} 
 
 \begin{equation}
-  Z_b = \frac{ \left( V_{base} \right)^2  }{S_{base}} = \frac{\left( \sqrt{3} \times 240 \right)^2}{4500} = <++> \Omega
+  Z_b = \frac{ \left( V_{base} \right)^2  }{S_{base}} = \frac{\left( \sqrt{3} \times 240 \right)^2}{4500} = 38.400 \Omega
 \end{equation}
 
 \begin{equation}
-  R_0 = <++> (p.u.)
+  R_0 = \frac{4.53}{5.70} \ \frac{1}{38.4} = 0.02070 \ (p.u.)
 \end{equation}
 
 \begin{equation}
-  |Z_0 | = \frac{| V_0 |}{| I_0 |} = \frac{| V^{'} |}{| \frac{I^{'}}{3} |} = <++> (p.u.)
+  |Z_0 | = \frac{| V_0 |}{| I_0 |} = \frac{| V^{'} |}{| \frac{I^{'}}{3} |} = \frac{2.3842}{Z_b} = 0.0621 \ (p.u.)
 \end{equation}
 
 \begin{equation}
-  X_{0} = \sqrt{| Z_0 |^{2} - R^2_0} = <++> 
+  X_{0} = \sqrt{| Z_0 |^{2} - R^2_0} = 0.05855  \ (p.u.)
 \end{equation}
 
 \subsection{Measure the secondary neutral current with the Fluke clamp meter} 
@@ -119,8 +122,6 @@ Primary Voltage:
 \begin{equation}
   | I^{''} | = 10.02 \ A \ \text{(rms)}
 \end{equation}
-
-<++>
 
 \subsection{Measure the voltage between the neutral points with DMM} 
 \begin{equation}
@@ -136,20 +137,27 @@ This measurement was oscillating a lot.
 
 \section{Y-Neutral to Y Transformer} 
 
+If $|I'|$ = 5.4 A, then
+
 \subsection{Predict $|I_s|$}
-<++>
+
+\begin{equation}
+  |I_s | = \frac{N_p}{N_s} | I_p | = \frac{2}{1} (5.4) = 10.8 \text{ A}
+\end{equation}
+
 \subsubsection{Explain:} 
-<++>
+Current through an ideal transformer is related through the turns ratio as seen in the equation above.
 
 \subsection{If $|I^{'} | = $ 5.4A, expectations are that:}
 
-$V^{'}$ to be: <++>
+$V^{'}$ to be: Larger
 
-$Z_0$ to be: <++>
+$Z_0$ to be: Magnetising/Leakage <++>
 
-The current in each primary winding to be: <++>
+The current in each primary winding to be: The same.
 
 Give explanations using Faraday's Law, Ampere's Law and the magnetic equivalent circuit.
+
 <++>
 
 \subsection{Measure voltage, current and power one the primary side of the transformer} 
@@ -177,17 +185,21 @@ Secondary Winding Current:
 \subsection{Calculate the transformer's parameters (referred to the primary)} 
 
 \begin{equation}
-  \frac{1}{3} R_0 = \frac{P^{'}}{|I^{'} |^{2}} = <++> \text{ (p.u.)}
-\end{equation}
-
-Comparing $R_0$ with that measured in part 1: <++>
-
-\begin{equation}
-  | Z_0 | = \frac{| V_0 |}{| I_0 |} = \frac{| V |}{| \frac{I^{'}}{3}|} = <++>\text{ (p.u.)}
+  \frac{1}{3} R_0 = \frac{P^{'}}{|I^{'} |^{2}} = 6.186 \text{ $\Omega$ } \Rightarrow 0.161  \text{ (p.u.)}
 \end{equation}
 
 \begin{equation}
-  X_0 = \sqrt{| Z_0 |^{2} - R^{2}_0} = <++> \text{ (p.u.)}
+  R_0  = 0.161 \times 3 = 0.483 \text{ (p.u.)}
+\end{equation}
+
+Comparing $R_0$ with that measured in part 1: Much higher. 
+
+\begin{equation}
+  | Z_0 | = \frac{| V_0 |}{| I_0 |} = \frac{| V' |}{| \frac{I^{'}}{3}|} = 27.591 \Rightarrow 0.71851 \text{ (p.u.)}
+\end{equation}
+
+\begin{equation}
+  X_0 = \sqrt{| Z_0 |^{2} - R^{2}_0} = 0.53195 \text{ (p.u.)}
 \end{equation}
 
 \subsection{Draw the zero sequence equivalent circuit of the transformer} 
@@ -210,7 +222,13 @@ Comparing $R_0$ with that measured in part 1: <++>
   | I^{'}_{C} | = 1.59 \text{ A}
 \end{equation}
 
-\subsubsection{The measurements are slightly unequal this is because:} 
+\subsubsection{The measurements are slightly unequal, this could be because of any of the following:} 
+
+\begin{itemize}
+  \item Imbalance of heat amongst the inductors in each phase.
+  \item 
+\end{itemize}
+
 <++>
 
 \subsection{With secondary terminals open-circuited and $|I^{'}| = 5.4$ A} 
@@ -242,7 +260,156 @@ Comparing $R_0$ with that measured in part 1: <++>
 \subsection{Measured Voltage, Current and Resistance on Primary Side} 
 
 \begin{equation}
-  <++>
+  | V ^{'} | = 3.036 \text{ V}
 \end{equation}
+
+\begin{equation}
+  | I ^{'} | = 1.8 \text{ A}
+\end{equation}
+
+Per-phase DC resistance:
+\begin{equation}
+  R_0 = <++>
+\end{equation}
+
+\subsection{DMM measurement of the phase voltages to primary neutral on the secondary side} 
+
+\begin{equation}
+  | V ^{''} _{a} | = 0.1 \text{ V}
+\end{equation}
+
+\begin{equation}
+  | V ^{''} _{b} | = 0.1 \text{ V}
+\end{equation}
+
+\begin{equation}
+  | V ^{''} _{c} | = 0.1 \text{ V}
+\end{equation}
+
+\subsection{Measured secondary current} 
+
+\begin{equation}
+  | I _{d} | = 3.34 \text{ A (rms)} 
+\end{equation}
+
+\subsection{Transformer's calculated parameters (referred to the primary)} 
+
+\begin{equation}
+  Z _0 = R _0 + j X _0 = <++> + j <++>
+\end{equation}
+
+\subsection{Zero sequence equivalent of the transformer} 
+
+<++>
+
+\subsubsection{Explain:} 
+
+<++>
+
+\subsection{If a secondary line terminal was shorted to the "earth" (primary neutral), what would be the resulting current?} 
+
+<++>
+
+\subsection{Is $Z _0$ a leakage or magnetising impedance?} 
+
+<++>
+
+\subsection{Is the delta secondary a short-circuit to zero sequence currents?} 
+
+<++>
+
+\subsection{Comparison of the $Z _0$ for the three confgurations} 
+
+\subsubsection{Configuration One <++>} 
+
+\subsubsection{Configuration Two <++>} 
+
+\subsubsection{Configuration Three <++>} 
+
+\section{Positive \& Negative Sequence Impedance} 
+
+Primary Voltage:
+\begin{equation}
+  | V _{sc} | = 7.89 \text{ V (rms)}
+\end{equation}
+
+Primary Current:
+\begin{equation}
+  | I _{sc} | 5.4 \text{ A (rms)}
+\end{equation}
+
+Primary Power:
+\begin{equation}
+  P _{sc} = 31 \text{ W}
+\end{equation}
+
+\subsection{Transformer's Calculated Parameters} 
+
+\begin{equation}
+  R_1 = \frac{P _{sc}}{| I _{sc}|^2} = 
+\end{equation}
+
+Comparing this with that found in Part 1:
+<++>
+
+\begin{equation}
+  | Z _1 | = | Z _2 | = \frac{|V_{sc}|}{|I_{sc}|} = <++>
+\end{equation}
+
+\begin{equation}
+  X_1 = \sqrt{| Z _1 |^2 - R^2 _1} = 
+\end{equation}
+
+\subsection{Comparing $R1$ and $R0$} 
+
+<++>
+
+\subsubsection{Explain} 
+
+<++>
+
+\subsection{Positive \& negative sequence test circuit for magnetising $Z$ } 
+
+\subsubsection{Why such a circuit is used:} 
+
+<++>
+
+\subsubsection{Determining $R _{1m}$ $X _{1m}$ and  $Z _{1m}$}
+
+<++>
+
+\subsection{Determining $Z_{0m}$} 
+
+<++>
+
+\subsubsection{Equivalent Circuits} 
+
+<++>
+
+\subsubsection{Relevant Equations} 
+
+<++>
+
+\subsubsection{Experimental setup and equipment} 
+
+<++>
+
+%\begin{circuitikz} \draw
+ % (0,0) to[V=\SI{100}{V}] (0,4) --
+ % (0,4) to[R] (4,4) --
+ % (4,4) to[L] (4,0) --
+ % (0,0);
+%\end{circuitikz}
+
+\begin{centering}
+
+\begin{circuitikz} \draw
+  (0,0) to[V] (0,3) --
+  (0,3) to[R] (3,3) --
+  (3,3) to[L] (3,0) --
+  (0,0);
+\end{circuitikz}
+
+\end{centering}
 
 \end{document}
