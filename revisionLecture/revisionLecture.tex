@@ -1,0 +1,77 @@
+\documentclass{article}
+\author{Alex Hiller}
+\title{Revision Lecture Notes}
+
+% Type-setting
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.25cm}
+\pagenumbering{gobble}
+\usepackage[margin=2cm]{geometry} % Formatting
+
+% Packages
+\usepackage{biblatex}  % Referencing
+\addbibresource{/home/polluticorn/GitHub/configuration/list.bib}
+\usepackage{amsmath}                  % Mathematics
+\usepackage{amssymb}                  % Mathematics
+\usepackage{listings}                 % Listings
+\usepackage{color}                    % Listings
+\usepackage{courier}                  % Listings
+\usepackage{circuitikz}               % Circuits
+\usepackage{titlesec}                 % Section Formatting
+
+% Code Formatting 
+\input{/home/polluticorn/GitHub/texTemplates/codeFormat}
+
+% Math Macros
+\input{/home/polluticorn/GitHub/texTemplates/mathMacros}  
+
+% Section formatting
+\titleformat{\section}{\huge \bfseries}{}{0em}{}[]
+\titleformat{\subsection}{\Large \bfseries}{}{0em}{}
+\titleformat{\subsubsection}{\bfseries}{}{0em}{}
+
+ % Note Taking Macros
+\input{/home/polluticorn/GitHub/texTemplates/noteTaking}
+
+\begin{document}
+% \AtEndDocument{\printbibliography}
+\AtEndDocument{\textbf{Questions:} \vspace{3mm} \newline}
+\maketitle
+
+We had ten topics.
+
+Three phase circuits -- we knew how to get the $\pi$ model.
+
+We learnt about the faults we have on those systems, what they look like. Including whether they were symmetrical or unsymmetrical.
+
+If we have a $\pi$ model we know how to do analysis to find transients. 
+
+From the transient we can also see how assess find the stability. 
+
+Hints/Comments:
+\begin{itemize}
+  \item 2hrs + 10mins    
+  \item 4 questions
+  \item Open book
+  \item Non-programmable calculator
+  \item People can spend too long searching through their notes, try to avoid this.
+  \item Hint: All the basic material you need is on the power-point slides.
+  \item Large Laplace transform tables are a distraction. Try to avoid this.
+  \item All matrices will either be totally imaginary or totally real. There will be no matrices with complex components. 
+  \item If you cannot solve the question numerically, then \textit{nicely solve} the question symbolically and you could get up to 70\% of the marks.
+\end{itemize}
+
+Questions:
+\begin{itemize}
+  \item Question One: AC single phase circuit analysis.
+  \item Question Two: Transmission Line modelling. LC(R) Model $\leftarrow$ $VR \%, \ n$ (efficiency) 
+  \item Question Three: Fault Analysis. Symmetrical Fault. Can use Thevenin or Z-bus. Ha Pham recommends the Z-bus approach. There will be less than or equal to 4 buses $\Rightarrow$ $4 \times 4$ matrix. 
+  \item Question Four: Unsymmetrical Fault, and/or Stability, and/or Transient.
+\end{itemize}
+
+\qanda{Topics to study for the final exam?}{As listed above.}
+\qanda{Last topic -- generators -- going to be in the exam?}{No.}
+\qanda{Long line model -- complicated. Would it be in the final exam?}{Could be. Ha Pham didn't want to specify which it would be. Likely to be Medium Line or Long Line.}
+
+
+\end{document}
